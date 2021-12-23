@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="/socket.io/socket.io.js"></script>
 		<title>Document</title>
 	</head>
 	<body>
-		<button>create a room</button>
-		<p>to join an existing room, enter in the url https://stuffs.programmer256.repl.co/?room=my-room-id</p>
-	<script>
-		document.querySelector("button").onclick=function()
-	</script>
+	<input type="text" onchange="socket.emit('guess',this.value)">
+		<script>
+			var socket = io({})
+			socket.on("correct", function(){
+				alert("correct");
+			});
+		</script>
 	</body>
 </html>

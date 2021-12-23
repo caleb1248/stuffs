@@ -7,7 +7,10 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-	
+	console.log("connection")
+	socket.on("guess", function(guess){
+		console.log(guess)
+		if(guess=='hello world') socket.emit('correct')
+	})
 });
-
 http.listen(80);
